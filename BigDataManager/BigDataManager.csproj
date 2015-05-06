@@ -440,6 +440,7 @@
     <Compile Include="Models\personbase.cs">
       <DependentUpon>JianZheng.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\RdtPnModel.cs" />
     <Compile Include="Models\RegionModel.cs" />
     <Compile Include="Models\report_syinfo.cs">
       <DependentUpon>JianZheng.tt</DependentUpon>

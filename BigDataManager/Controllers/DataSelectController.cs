@@ -39,16 +39,31 @@ namespace BigDataManager.Controllers
         {
             
             MySqlParameter parentid=new MySqlParameter("pid",pid);
-            List<RegionModel> list = jz.Database.SqlQuery<RegionModel>("select count(*) as StructuringCount,c as Name from tpersons WHERE ai=@pid GROUP BY ah;", parentid).ToList();
+            List<RegionModel> /*结构化数据*/ Stru = jz.Database.SqlQuery<RegionModel>("select count(*) as StructuringCount,c as Name,ah as Code from tpersons WHERE ai=@pid GROUP BY ah;", parentid).ToList();
+            List<RegionModel> /*非结构化数据*/ NotStru = jz.Database.SqlQuery<RegionModel>(" select count(*) as NotStructuringCount from  tpersons as a  INNER JOIN  businessinfo as b on a.d=b.IDNUMBER INNER JOIN materialtakeinfo as c ON b.CURRAFFAIRID=c.CURR_AFFAIRID where a.D<>'' and c.SAVEPATH<>'' and a.ai=@pid GROUP BY a.AH ", parentid).ToList();
+            List<RegionModel> list = new List<RegionModel>();
+            for (int i = 0; i < Stru.Count; i++)
+            {
+                RegionModel r = new RegionModel { Name = Stru[i].Name, StructuringCount = Stru[i].StructuringCount, NotStructuringCount = NotStru[i].NotStructuringCount, Code = Stru[i].Code };
+                list.Add(r);
+            }
             return View(list);
         }
         /// <summary>
         /// 按居住人口查询
         /// </summary>
         /// <returns></returns>
-        public ActionResult AccordingToThePopulation()
+        public ActionResult AccordingToThePopulation(int pid = 124,int pageIndex=1,int pageSize=10)
         {
-            return View();
+            MySqlParameter parentid = new MySqlParameter("pid", pid);
+            var tmp = jz.Database.SqlQuery<RdtPnModel>("select  b as Name,d as IdCard,aj as IsLocalCity from tpersons as a where ah=@pid", parentid);
+            int TotalCount=  tmp.Count();
+            List<RdtPnModel> list = tmp.Skip((pageIndex-1)*pageSize).Take(pageSize).ToList();
+            ViewData["pid"] = pid;
+            ViewData["pageIndex"] = pageIndex;
+            ViewData["pageSize"] = pageSize;
+            ViewData["TotalCount"] = TotalCount;
+            return View(list);
         }
         /// <summary>
         /// 人员详细结构化

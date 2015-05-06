@@ -17,9 +17,9 @@
         @foreach (RegionModel item in Model)
         {
             <tr>
-                <td><a class="am-btn-link" href="@item.Code">@item.Name</a></td>
+                <td><a class="am-btn-link" href="/DataSelect/AccordingToThePopulation?pid=@item.Code">@item.Name</a></td>
                 <td>@item.StructuringCount</td>
-                <td></td>
+                <td>@item.NotStructuringCount</td>
             </tr>
         }
     </tbody>
