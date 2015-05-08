@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Webdiyer.WebControls.Mvc;
 
 namespace BigDataManager.Controllers
 {
@@ -29,6 +30,7 @@ namespace BigDataManager.Controllers
                 RegionModel r = new RegionModel { Name = Stru[i].Name, StructuringCount = Stru[i].StructuringCount, NotStructuringCount=NotStru[i].NotStructuringCount,Code=Stru[i].Code};
                 list.Add(r);
             }
+          
             return View(list);
         }
         /// <summary>
@@ -39,8 +41,8 @@ namespace BigDataManager.Controllers
         {
             
             MySqlParameter parentid=new MySqlParameter("pid",pid);
-            List<RegionModel> /*结构化数据*/ Stru = jz.Database.SqlQuery<RegionModel>("select count(*) as StructuringCount,c as Name,ah as Code from tpersons WHERE ai=@pid GROUP BY ah;", parentid).ToList();
-            List<RegionModel> /*非结构化数据*/ NotStru = jz.Database.SqlQuery<RegionModel>(" select count(*) as NotStructuringCount from  tpersons as a  INNER JOIN  businessinfo as b on a.d=b.IDNUMBER INNER JOIN materialtakeinfo as c ON b.CURRAFFAIRID=c.CURR_AFFAIRID where a.D<>'' and c.SAVEPATH<>'' and a.ai=@pid GROUP BY a.AH ", parentid).ToList();
+            List<RegionModel> /*结构化数据*/ Stru = jz.Database.SqlQuery<RegionModel>(@"SELECT count(*) AS StructuringCount,person_base.c AS NAME,person_base.ah AS CODE from (SELECT c,ah FROM tpersons WHERE ai = @pid) as person_base GROUP BY person_base.ah", parentid).ToList();
+            List<RegionModel> /*非结构化数据*/ NotStru = jz.Database.SqlQuery<RegionModel>("SELECT count(*) AS NotStructuringCount FROM (SELECT person_base.d,person_base.AH FROM tpersons AS person_base WHERE person_base.D <>'' AND person_base.ai =@pid) AS a INNER JOIN businessinfo AS b ON a.d = b.IDNUMBER INNER JOIN materialtakeinfo AS c ON b.CURRAFFAIRID = c.CURR_AFFAIRID WHERE c.SAVEPATH <>'' GROUP BY a.AH;", parentid).ToList();
             List<RegionModel> list = new List<RegionModel>();
             for (int i = 0; i < Stru.Count; i++)
             {
@@ -57,21 +59,18 @@ namespace BigDataManager.Controllers
         {
             MySqlParameter parentid = new MySqlParameter("pid", pid);
             var tmp = jz.Database.SqlQuery<RdtPnModel>("select  b as Name,d as IdCard,aj as IsLocalCity from tpersons as a where ah=@pid", parentid);
-            int TotalCount=  tmp.Count();
-            List<RdtPnModel> list = tmp.Skip((pageIndex-1)*pageSize).Take(pageSize).ToList();
-            ViewData["pid"] = pid;
-            ViewData["pageIndex"] = pageIndex;
-            ViewData["pageSize"] = pageSize;
-            ViewData["TotalCount"] = TotalCount;
-            return View(list);
+            return View(tmp.ToPagedList(pageIndex,pageSize));
         }
         /// <summary>
         /// 人员详细结构化
         /// </summary>
         /// <returns></returns>
-        public ActionResult PopulationDetailStructuring() 
+        public ActionResult PopulationDetailStructuring(string pid="") 
         {
-            return View();
+            MySqlParameter parentid = new MySqlParameter("pid", pid);
+            List<PersonalInfoModel> list = jz.Database.SqlQuery<PersonalInfoModel>("select a.b as Name,a.e as Sex,a.f as Birth from tpersons as a left JOIN businessinfo as b on a.D=b.IDNUMBER LEFT JOIN user_report c on a.D=c.cardid WHERE a.d=@pid", parentid).ToList();
+            return View(list);
+           
         }
         /// <summary>
         /// 材料详情

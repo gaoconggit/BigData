@@ -48,6 +48,10 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MvcPager, Version=2.0.0.1, Culture=neutral, PublicKeyToken=f6872c5a09aed72c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\MvcPager.dll</HintPath>
+    </Reference>
     <Reference Include="MySql.Data, Version=6.9.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\MySql.Data.6.9.6\lib\net40\MySql.Data.dll</HintPath>
@@ -57,6 +61,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -203,443 +208,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\addressbook.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\affairconfig.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\affairdifficulties.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\affairflow.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\affairguide.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\affairinfo.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\affairs.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\affair_attach.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\affair_check.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\affair_check_message.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\affair_edit.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\affair_manager.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\affair_manager_role_value.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\affair_role.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\affair_role_channel_value.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\af_businesssystems.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\agentinfo.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\auditattachment.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\auditrecords.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\bg_answergroup.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\bg_answers.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\bg_questions.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\bg_takemat.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\businessguide.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\businessinfo.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\clientversion.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\collection_notice.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\commonproblem.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\configkey.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\configvalueforkey.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\configvaluegroup.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\contactrecord.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\dic_affairtype.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\dic_af_level.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\dic_committee.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\dic_competentauth.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\dic_counties.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\dic_datadirectory.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\dic_djaffairs.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\dic_docmenttype.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\dic_feedbacktype.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\dic_locdepartment.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\dic_receivetype.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\dic_servicestatus.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\dic_standardproc.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\dic_standardreplayfile.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\dic_stateofaffairs.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\dic_timelimittype.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\dic_town.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\dic_transtype.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\dic_userlevel.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\dic_userrole.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\dic_violatebehavior.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\dic_yushenstate.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\feedback.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\grapping.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\JianZheng.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>JianZheng.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\JianZheng.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\JianZheng.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>JianZheng.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\lb_affairsclassify.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\lb_classify.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\lb_classifyproject.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\linebusinesssys.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\linebusiness_count.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\lineelement.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\lineweburl.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\loginlog.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\materials_byobject.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\materials_details.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\materialtakeinfo.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\materialtransfer.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\messagepoints1.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\mtrecord.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\notice.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\noticeattachment.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\operationguide.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\personbase.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\PersonalInfoModel.cs" />
     <Compile Include="Models\RdtPnModel.cs" />
     <Compile Include="Models\RegionModel.cs" />
-    <Compile Include="Models\report_syinfo.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\report_userinfo.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\repository.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\repositoryanswers.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\repository_base.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\repository_base_attachment.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\requestwindow.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\serviceversion.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\servicewindow.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\smsabout.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\st_answer.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\st_apply.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\st_exam.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\st_examqf.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\st_faq.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\st_paper.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\st_paperquestion.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\st_question.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\st_qwtype.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\st_reply.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\st_train.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\st_userfav.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\st_user_exam.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\st_video.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sysmsgnotification.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sysmsgtype.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\systemconfig.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sy_user.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\temp_jw.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\temp_ri.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\touchnotice.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tpersons.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\transfer_table.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\transportfile.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\transportfile_complete.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\transportfile_copy.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\userpower.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\userright.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\user_remark.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\user_report.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\versionrecord.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\violateattachment.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\violateinfo.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\virtualmachinelist.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\v_affinfo.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\v_affplan.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\v_examquestion.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\v_linema.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\v_lines.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\v_manager.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\v_material.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\v_record.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\v_sg_affairs.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\v_sing.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\v_sysloginlog.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\v_userexam.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\v_wjsw.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\v_workpublish.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\v_zxloginlog.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\yu_shen.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\yu_shen_material.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\yu_yue.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\znsgmachine.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\znsgsitelog.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\zxloginlog.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\zxzhconfig.cs">
-      <DependentUpon>JianZheng.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\TestEnum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -649,6 +221,7 @@
     <Content Include="assets\css\amazeui.flat.min.css" />
     <Content Include="assets\css\amazeui.min.css" />
     <Content Include="assets\css\app.css" />
+    <Content Include="assets\css\Pager.css" />
     <Content Include="assets\fonts\fontawesome-webfont.svg" />
     <Content Include="assets\i\app-icon72x72%402x.png" />
     <Content Include="assets\i\examples\admin-chrome.png" />
@@ -736,23 +309,6 @@
     <Content Include="assets\fonts\fontawesome-webfont.woff" />
     <Content Include="assets\fonts\fontawesome-webfont.woff2" />
     <Content Include="assets\fonts\FontAwesome.otf" />
-    <EntityDeploy Include="Models\JianZheng.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>JianZheng.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\JianZheng.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>JianZheng.edmx</DependentUpon>
-      <LastGenOutput>JianZheng.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\JianZheng.edmx.diagram">
-      <DependentUpon>JianZheng.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\JianZheng.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>JianZheng.edmx</DependentUpon>
-      <LastGenOutput>JianZheng.cs</LastGenOutput>
-    </Content>
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
@@ -814,6 +370,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
