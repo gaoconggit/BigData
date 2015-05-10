@@ -8,18 +8,12 @@ namespace BigDataManager.Models
     public class PersonalInfoModel
     {
         /// <summary>
-        /// 姓名
+        /// 键
         /// </summary>
-        public string Name { get; set; }
-
+        public string Key { get; set; }
         /// <summary>
-        /// 姓别
+        /// 值
         /// </summary>
-        public string Sex { get; set; }
-        
-        /// <summary>
-        /// 出生年月
-        /// </summary>
-        public string Birth { get; set; }
+        public string Value { get; set; }
     }
 }

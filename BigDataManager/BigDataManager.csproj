@@ -54,6 +54,9 @@
       <Private>True</Private>
       <HintPath>..\packages\MySql.Data.6.9.6\lib\net40\MySql.Data.dll</HintPath>
     </Reference>
+    <Reference Include="MySql.Data.Entity.EF6, Version=6.9.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.Entity.6.9.6\lib\net40\MySql.Data.Entity.EF6.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Linq" />
@@ -203,10 +206,46 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\affairinfo.cs">
+      <DependentUpon>JianZheng.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\businessinfo.cs">
+      <DependentUpon>JianZheng.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dic_committee.cs">
+      <DependentUpon>JianZheng.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dic_town.cs">
+      <DependentUpon>JianZheng.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\JianZheng.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JianZheng.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\JianZheng.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JianZheng.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\JianZheng.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JianZheng.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NotStrDetailModel.cs" />
     <Compile Include="Models\PersonalInfoModel.cs" />
     <Compile Include="Models\RdtPnModel.cs" />
     <Compile Include="Models\RegionModel.cs" />
-    <Compile Include="Models\TestEnum.cs" />
+    <Compile Include="Models\tpersons.cs">
+      <DependentUpon>JianZheng.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\user_report.cs">
+      <DependentUpon>JianZheng.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\view_detail.cs">
+      <DependentUpon>JianZheng.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -304,6 +343,23 @@
     <Content Include="assets\fonts\fontawesome-webfont.woff" />
     <Content Include="assets\fonts\fontawesome-webfont.woff2" />
     <Content Include="assets\fonts\FontAwesome.otf" />
+    <EntityDeploy Include="Models\JianZheng.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>JianZheng.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\JianZheng.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>JianZheng.edmx</DependentUpon>
+      <LastGenOutput>JianZheng.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\JianZheng.edmx.diagram">
+      <DependentUpon>JianZheng.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\JianZheng.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>JianZheng.edmx</DependentUpon>
+      <LastGenOutput>JianZheng.cs</LastGenOutput>
+    </Content>
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
@@ -354,6 +410,7 @@
     <Content Include="Views\DataSelect\AccordingToThePopulation.cshtml" />
     <Content Include="Views\DataSelect\PopulationDetailStructuring.cshtml" />
     <Content Include="Views\DataSelect\MaterialDetail.cshtml" />
+    <Content Include="Views\DataSelect\PopulationDetailNotStructuring.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

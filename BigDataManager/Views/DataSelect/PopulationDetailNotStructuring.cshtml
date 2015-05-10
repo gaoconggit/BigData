@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "PopulationDetailNotStructuring";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+@using Webdiyer.WebControls.Mvc
+@using BigDataManager.Models
+@model PagedList<NotStrDetailModel>
+<link href="~/assets/css/Pager.css" rel="stylesheet" />
+
+<div class="am-tabs" data-am-tabs>
+    <ul class="am-tabs-nav am-nav am-nav-tabs">
+        <li id="Stuct"><a href="javascript:void(0);">结构化数据</a></li>
+        <li class="am-active"><a href="javascript:void(0);">非结构化数据</a></li>
+    </ul>
+    <div class="am-tabs-bd">
+        <div class="am-tab-panel am-fade am-in am-active" id="tab2">
+            <table align="center" class="am-table am-table-bordered">
+                <thead>
+                    <tr>
+                        <th>材料名称</th>
+                        <th>查看附件</th>
+                        <th>沉淀时间</th>
+                    </tr>
+                </thead>
+                @foreach (var item in Model)
+                {
+                    <tbody>
+                        <tr>
+                            <td>@item.Name</td>
+                            <td><a class="am-btn-link" href="http://19.133.103.22:8033/materialTake/@item.Path">查看</a></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                }
+            </table>
+            @Html.Pager(Model, new PagerOptions { PageIndexParameterName = "pageIndex", PagerItemsSeperator = "", ShowPageIndexBox = true, CurrentPagerItemWrapperFormatString = "<span class=\"current\">{0}</span>" }, new { id = "badoopager" })
+            @section Scripts{
+                <script>
+                    $(function () {
+                        $("#Stuct").click(function () {
+                            window.location = "/DataSelect/PopulationDetailStructuring?pid=@Request.QueryString["pid"]";
+                        })
+                    })
+                </script>
+                @{Html.RegisterMvcPagerScriptResource();}
+            }
+        </div>
+    </div>
+</div>

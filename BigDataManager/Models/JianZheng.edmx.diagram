@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2f1db888c00a44f586671f905f13b657" Name="Diagram1">
+        <EntityTypeShape EntityType="jianzhengModel.affairinfo" Width="1.5" PointX="5.25" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="jianzhengModel.businessinfo" Width="1.5" PointX="7.5" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="jianzhengModel.dic_committee" Width="1.5" PointX="3" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="jianzhengModel.dic_town" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="jianzhengModel.tpersons" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="jianzhengModel.user_report" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="jianzhengModel.businessinfo_ibfk_2" ManuallyRouted="false" />
+        <AssociationConnector Association="jianzhengModel.ref" ManuallyRouted="false" />
+        <AssociationConnector Association="jianzhengModel.ref_2" ManuallyRouted="false" />
+        <AssociationConnector Association="jianzhengModel.dic_committee_ibfk_1" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="jianzhengModel.view_detail" Width="1.5" PointX="10.375" PointY="9.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
