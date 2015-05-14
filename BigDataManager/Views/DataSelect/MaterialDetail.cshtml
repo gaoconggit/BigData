@@ -1,5 +1,14 @@
 ﻿@{
     ViewBag.Title = "MaterialDetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>详情页</h2>
+@using BigDataManager.Models
+@model NotStrDetailModel
+@section Scripts{}
+<figure data-am-widget="figure" class="am am-figure am-figure-one "
+        data-am-figure="{  pureview: 'true' }">
+    <img src="" data-rel="http://19.133.103.22:8033/materialTake/@Model.Path"
+         alt="@Model.Name" />
+    <figcaption class="am-figure-capition-btm">@Model.Name</figcaption>
+    
+</figure>

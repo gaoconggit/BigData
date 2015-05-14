@@ -4,19 +4,9 @@
 
 }
 @using BigDataManager.Models
-@model List<PersonalInfoModel>
-@section Scripts{
-       <script>
-
-           $(function () {
-
-               $("#notStuct").click(function () {
-                   window.location = "/DataSelect/PopulationDetailNotStructuring?pid=@Request.QueryString["pid"]";
-               })
-           })
-       </script>
-    
-    }
+@using Webdiyer.WebControls.Mvc
+@model PagedList<PersonalInfoModel>
+<link href="~/assets/css/Pager.css" rel="stylesheet" />
 <div class="am-tabs" data-am-tabs>
     <ul class="am-tabs-nav am-nav am-nav-tabs">
         <li class="am-active"><a href="#tab1">结构化数据</a></li>
@@ -32,7 +22,7 @@
                         <th>沉淀时间</th>
                     </tr>
                 </thead>
-                @foreach(PersonalInfoModel p in Model)
+                @foreach (PersonalInfoModel p in Model)
                 {
                     <tbody>
                         <tr>
@@ -43,7 +33,20 @@
                     </tbody>
                 }
             </table>
+            @Html.Pager(Model, new PagerOptions { PageIndexParameterName = "pageIndex", PagerItemsSeperator = "", ShowPageIndexBox = true, CurrentPagerItemWrapperFormatString = "<span class=\"current\">{0}</span>" }, new { id = "badoopager" })
+
+            @section Scripts{
+                <script>
+
+                    $(function () {
+
+                        $("#notStuct").click(function () {
+                            window.location = "/DataSelect/PopulationDetailNotStructuring?pid=@Request.QueryString["pid"]";
+                        })
+                    })
+                </script>
+                @{Html.RegisterMvcPagerScriptResource();}
+            }
         </div>
     </div>
 </div>
-

@@ -12,20 +12,19 @@ namespace BigDataManager.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class dic_committee
+    public partial class materialtakeinfo
     {
-        public dic_committee()
-        {
-            this.affairinfo = new HashSet<affairinfo>();
-        }
+        public int ID { get; set; }
+        public int CURR_AFFAIRID { get; set; }
+        public string MATERIALNAME { get; set; }
+        public int COPIES { get; set; }
+        public int MATERIALTYPE { get; set; }
+        public string SAVEPATH { get; set; }
+        public Nullable<int> TOWNCODE { get; set; }
+        public string REMARK { get; set; }
+        public Nullable<int> VALID { get; set; }
     
-        public int CODE { get; set; }
-        public string NAME { get; set; }
-        public bool ISVILLAGE { get; set; }
-        public int PARENT { get; set; }
-        public int VALID { get; set; }
-    
-        public virtual ICollection<affairinfo> affairinfo { get; set; }
+        public virtual affairinfo affairinfo { get; set; }
         public virtual dic_town dic_town { get; set; }
     }
 }

@@ -12,7 +12,7 @@ namespace BigDataManager.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class tpersons
+    public partial class view_person_detail
     {
         public string A { get; set; }
         public string B { get; set; }
@@ -50,5 +50,30 @@ namespace BigDataManager.Models
         public string AH { get; set; }
         public string AI { get; set; }
         public string AJ { get; set; }
+        public Nullable<int> CURRAFFAIRID { get; set; }
+        public Nullable<int> P_DOC_TYPE { get; set; }
+        public string IDNUMBER { get; set; }
+        public string P_NAME { get; set; }
+        public Nullable<int> P_SEX { get; set; }
+        public Nullable<System.DateTime> P_BIRTHDAY { get; set; }
+        public string PHONE { get; set; }
+        public string MOBLEPHONE { get; set; }
+        public string RESIDENCEADDRESS { get; set; }
+        public string LIVEADDRESS { get; set; }
+        public Nullable<int> VALID { get; set; }
+        public string RESERVED1 { get; set; }
+        public string RESERVED2 { get; set; }
+        public string RESERVED3 { get; set; }
+        public string RESERVED4 { get; set; }
+        public string RESERVED5 { get; set; }
+        public Nullable<int> id { get; set; }
+        public string cardid { get; set; }
+        public string attrName { get; set; }
+        public string attrVal { get; set; }
+        public string attrTime { get; set; }
+        public string UserName { get; set; }
+        public string attrClass { get; set; }
+        public string PC { get; set; }
+        public Nullable<int> attrId { get; set; }
     }
 }

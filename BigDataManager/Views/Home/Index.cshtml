@@ -18,6 +18,25 @@
     <meta name="apple-mobile-web-app-title" content="Amaze UI" />
     <link rel="stylesheet" href="assets/css/amazeui.min.css" />
     <link rel="stylesheet" href="assets/css/admin.css">
+    <!--[if lt IE 9]>
+    <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+    <script src="assets/js/polyfill/rem.min.js"></script>
+    <script src="assets/js/polyfill/respond.min.js"></script>
+    <script src="assets/js/amazeui.legacy.js"></script>
+    <![endif]-->
+    <!--[if (gte IE 9)|!(IE)]><!-->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/amazeui.min.js"></script>
+    <!--<![endif]-->
+    <script src="assets/js/app.js"></script>
+    <script>
+        $(function () {
+            $("#Content")[0].src = "/DataSelect/AccordingToTheRegion";
+
+        })
+
+    </script>
 </head>
 <body>
     <!--[if lte IE 9]>
@@ -31,17 +50,6 @@
         <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
         <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
             <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list">
-                <li><a href="javascript:;"><span class="am-icon-envelope-o"></span> 收件箱 <span class="am-badge am-badge-warning">5</span></a></li>
-                <li class="am-dropdown" data-am-dropdown>
-                    <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
-                        <span class="am-icon-users"></span> 管理员 <span class="am-icon-caret-down"></span>
-                    </a>
-                    <ul class="am-dropdown-content">
-                        <li><a href="#"><span class="am-icon-user"></span> 资料</a></li>
-                        <li><a href="#"><span class="am-icon-cog"></span> 设置</a></li>
-                        <li><a href="#"><span class="am-icon-power-off"></span> 退出</a></li>
-                    </ul>
-                </li>
                 <li class="am-hide-sm-only"><a href="javascript:;" id="admin-fullscreen"><span class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span></a></li>
             </ul>
         </div>
@@ -50,52 +58,7 @@
         <!-- sidebar start -->
         <div class="admin-sidebar am-offcanvas" id="admin-offcanvas">
             <div class="am-offcanvas-bar admin-offcanvas-bar">
-                <ul class="am-list admin-sidebar-list">
-                    <li class="admin-parent">
-                        <a class="am-cf" data-am-collapse="{target: '#collapse-dataItem'}"><span class="am-icon-file"></span> 数据统计 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
-                        <ul class="am-list am-collapse admin-sidebar-sub" id="collapse-dataItem">
-                            <li><a href="/DataSelect/AccordingToTheRegion" class="am-cf" target="Content"><span class="am-icon-check"></span> 数据量统计<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
-                            <li><a href="admin-help.html" target="Content"><span class="am-icon-puzzle-piece" ></span> 数据量变化趋势</a></li>
-                            <li><a href="admin-help.html" target="Content"><span class="am-icon-puzzle-piece"></span> 数据分类统计</a></li>
-                        </ul>
-                    </li>
-                    <li class="admin-parent">
-                        <a class="am-cf" data-am-collapse="{target: '#collapse-nav'}"><span class="am-icon-file"></span> 数据查询 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
-                        <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav">
-                            <li class="admin-parent">
-                                <a class="am-cf" data-am-collapse="{target: '#collapse-RegionItem'}" href="/DataSelect/AccordingToTheRegion" target="Content"><span class="am-icon-check"></span> 按区域<span class="am-icon-angle-right am-fr am-margin-right"></span></a>
-                                <ul class="am-list am-collapse admin-sidebar-sub" id="collapse-RegionItem">
-                                    <li class="admin-parent">
-                                        <a class="am-cf" data-am-collapse="{target: '#collapse-VillageItem'}" href="/DataSelect/AccordingToTheVillage" target="Content"><span class="am-icon-check"></span> 村居<span class="am-icon-angle-right am-fr am-margin-right"></span></a>
-                                        <ul class="am-list am-collapse admin-sidebar-sub" id="collapse-VillageItem">
-                                            <li>
-                                                <a data-am-collapse="{target: '#collapse-PopulationItem'}" href="/DataSelect/AccordingToThePopulation" class="am-cf" target="Content"><span class="am-icon-check"></span> 居住人口<span class="am-icon-angle-right am-fr am-margin-right"></span></a>
-                                                <ul class="am-list am-collapse admin-sidebar-sub" id="collapse-PopulationItem">
-                                                    <li><a href="/DataSelect/PopulationDetailStructuring" class="am-cf" target="Content"><span class="am-icon-check"></span>人员详细信息&nbsp; (结构化数据)<span class="am-fr am-margin-right admin-icon-yellow"></span></a></li>
-                                                    <li class="admin-parent">
-                                                        <a href="/DataSelect/PopulationDetailStructuring" class="am-cf" target="Content" data-am-collapse="{target: '#collapse-PersonDetailItem'}"><span class="am-icon-check"></span>人员详细信息 &nbsp;(非结构化数据)<span class="am-icon-angle-right am-fr am-margin-right"></span></a>
-                                                        <ul class="am-list am-collapse admin-sidebar-sub" id="collapse-PersonDetailItem">
-                                                            <li><a href="/DataSelect/MaterialDetail" class="am-cf" target="Content"><span class="am-icon-check"></span> 材料详情<span class="am-fr am-margin-right"></span></a></li>
-                                                        </ul>
-                                                    </li>
-                                                </ul>
-                                             </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li><a href="admin-help.html"><span class="am-icon-puzzle-piece"></span> 精确查询</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="admin-table.html"><span class="am-icon-table"></span> 数据模型</a></li>
-                    <li class="admin-parent">
-                        <a class="am-cf" data-am-collapse="{target: '#collapse-dataInterface'}"><span class="am-icon-table"></span> 数据接口 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
-                        <ul class="am-list am-collapse admin-sidebar-sub " id="collapse-dataInterface">
-                            <li><a href="admin-user.html" class="am-cf"><span class="am-icon-check"></span> 对接日志<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
-                            <li><a href="admin-help.html"><span class="am-icon-puzzle-piece"></span> 接口状态</a></li>
-                        </ul>
-                    </li>
-                </ul>
+             
                 <div class="am-panel am-panel-default admin-sidebar-panel">
                     <div class="am-panel-bd">
                         <p><span class="am-icon-bookmark"></span> 公告</p>
@@ -133,20 +96,8 @@
     <footer>
         <hr>
         <hr>
-        <p class="am-padding-left">© 2014 AllMobilize, Inc. Licensed under MIT license.</p>
+        <p class="am-text-center">© 2015   上海一门式政务研发中心.</p>
     </footer>
-    <!--[if lt IE 9]>
-    <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
-    <script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
-    <script src="assets/js/polyfill/rem.min.js"></script>
-    <script src="assets/js/polyfill/respond.min.js"></script>
-    <script src="assets/js/amazeui.legacy.js"></script>
-    <![endif]-->
-    <!--[if (gte IE 9)|!(IE)]><!-->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/amazeui.min.js"></script>
-    <!--<![endif]-->
-    <script src="assets/js/app.js"></script>
 </body>
 </html>
 
